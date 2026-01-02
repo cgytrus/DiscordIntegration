@@ -44,7 +44,7 @@ public class MessageUtilsImpl extends MessageUtils {
         try {
             final JsonElement jsonElement = JsonParser.parseString(SerializeComponentUtils.toJson(component, w.registryAccess()));
 
-            DiscordIntegration.LOGGER.info("JSON-Element: "+jsonElement);
+            //DiscordIntegration.LOGGER.info("JSON-Element: "+jsonElement);
             if (jsonElement.isJsonObject())
                 json = jsonElement.getAsJsonObject();
             else return null;
@@ -52,7 +52,7 @@ public class MessageUtilsImpl extends MessageUtils {
             DiscordIntegration.LOGGER.error("There was an error parsing JSON", ex);
             return null;
         }
-        DiscordIntegration.LOGGER.info("JSON: "+json);
+        //DiscordIntegration.LOGGER.info("JSON: "+json);
         System.out.println(json);
         if (json.has("with")) {
             final JsonArray args = json.getAsJsonArray("with");

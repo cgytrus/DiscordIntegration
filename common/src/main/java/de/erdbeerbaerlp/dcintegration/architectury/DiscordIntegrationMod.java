@@ -278,7 +278,7 @@ public final class DiscordIntegrationMod {
             if (!Configuration.instance().compatibility.disableParsingMentionsIngame && text.contains("@")) {
                 text = mentionPattern.matcher(text).replaceAll(mr -> {
                     final String username = mr.group(1);
-                    LOGGER.info(username);
+                    //LOGGER.info(username);
                     for (Member member : INSTANCE.getChannel().getGuild().getMembersByName(username, false)) {
                         return member.getAsMention();
                     }
@@ -290,7 +290,7 @@ public final class DiscordIntegrationMod {
                 if (text.contains("#"))
                     text = legacyMentionPattern.matcher(text).replaceAll(mr -> {
                         final String tag = mr.group(1);
-                        LOGGER.info(tag);
+                        //LOGGER.info(tag);
                         final Member member = INSTANCE.getChannel().getGuild().getMemberByTag(tag);
                         if (member != null) {
                             return member.getAsMention();
