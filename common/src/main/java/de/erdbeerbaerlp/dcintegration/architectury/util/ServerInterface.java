@@ -81,7 +81,7 @@ public class ServerInterface implements McServerInterface {
             }
             //Send to server console too
             final String jsonComp = GsonComponentSerializer.gson().serialize(msg).replace("\\\\n", "\n");
-            final net.minecraft.network.chat.Component comp = SerializeComponentUtils.fromJson(jsonComp, VanillaRegistries.createLookup());
+            final net.minecraft.network.chat.Component comp = SerializeComponentUtils.fromJson(jsonComp, server.registryAccess());
             server.sendSystemMessage(comp);
         } catch (Exception e) {
             e.printStackTrace();
